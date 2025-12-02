@@ -19,7 +19,10 @@ const DashboardView = () => {
 
   return (
     <>
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+      <section 
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8"
+        aria-label="Indicadores clave de rendimiento"
+      >
         <KpiCard 
           title="Ingresos Totales" 
           value="$24.5k" 
@@ -44,9 +47,12 @@ const DashboardView = () => {
       </section>
       
       <section className="flex flex-col lg:flex-row gap-6 md:gap-8 h-96">
-        <article className="flex-1 bg-white p-4 md:p-6 rounded-xl shadow-sm border flex flex-col">
+        <article 
+          className="flex-1 bg-white p-4 md:p-6 rounded-xl shadow-sm border flex flex-col"
+          aria-label="Gráfico de ventas recientes"
+        >
           <h3 className="font-bold text-gray-800 mb-4">Ventas Recientes</h3>
-          <div className="flex-1">
+          <div className="flex-1" role="img" aria-label="Gráfico de área mostrando ventas de la última semana">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={salesData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -59,12 +65,15 @@ const DashboardView = () => {
           </div>
         </article>
         
-        <article className="lg:w-96 bg-white rounded-xl shadow-sm border overflow-hidden flex flex-col">
+        <article 
+          className="lg:w-96 bg-white rounded-xl shadow-sm border overflow-hidden flex flex-col"
+          aria-label="Lista de últimas órdenes"
+        >
           <div className="p-4 md:p-6 border-b">
             <h3 className="font-bold text-gray-800">Últimas Órdenes</h3>
           </div>
           <div className="overflow-y-auto">
-            <table className="w-full text-left">
+            <table className="w-full text-left" aria-label="Tabla de últimas órdenes">
               <tbody>
                 {orders.slice(0, 4).map(order => (
                   <tr key={order.id} className="border-b last:border-0 hover:bg-gray-50">

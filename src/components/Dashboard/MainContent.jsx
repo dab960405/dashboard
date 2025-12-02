@@ -7,17 +7,24 @@ const MainContent = () => {
   const { activeTab } = useDashboard();
 
   return (
-    <div className="p-4 md:p-8 flex-1 overflow-y-auto">
+    <main 
+      role="main"
+      aria-label="Contenido principal"
+      className="p-4 md:p-8 flex-1 overflow-y-auto"
+    >
       {activeTab === 'dashboard' ? (
         <DashboardView />
       ) : (
         <DataTable />
       )}
       
-      <footer className="mt-8 pt-4 text-center text-xs md:text-sm text-gray-500 border-t border-gray-200">
+      <footer 
+        role="contentinfo"
+        className="mt-8 pt-4 text-center text-xs md:text-sm text-gray-500 border-t border-gray-200"
+      >
         &copy; {new Date().getFullYear()} MiEmpresa System.
       </footer>
-    </div>
+    </main>
   );
 };
 

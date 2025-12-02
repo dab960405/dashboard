@@ -48,12 +48,15 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <div 
           className="fixed inset-0 z-40 bg-black bg-opacity-50 transition-opacity duration-300"
           onClick={() => setIsSidebarOpen(false)}
+          aria-hidden="true"
         />
       )}
 
       {/* Sidebar */}
       <aside 
         ref={sidebarRef}
+        role="navigation"
+        aria-label="Menú principal de navegación"
         className={`
           fixed md:relative
           top-0 left-0 
@@ -72,14 +75,14 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               {isSidebarOpen ? (
                 <img 
                   src={logoDesktop} 
-                  alt="Mi Empresa" 
+                  alt="TechStore Dashboard - Logo de la empresa" 
                   className="h-24 w-auto max-w-full object-contain"
                 />
               ) : (
                 <div className="hidden md:flex items-center justify-center">
                   <img 
                     src={logoIcon} 
-                    alt="ME" 
+                    alt="TechStore - Icono del menú" 
                     className="h-24 w-auto object-contain"
                   />
                 </div>
@@ -88,14 +91,19 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             <button 
               onClick={() => setIsSidebarOpen(false)}
               className="md:hidden hover:bg-gray-100 p-1 rounded"
+              aria-label="Cerrar menú de navegación"
             >
-              <X size={24} className="text-gray-500" />
+              <X size={24} className="text-gray-500" aria-hidden="true" />
             </button>
           </div>
         </div>
         
         {/* Menú de navegación */}
-        <nav className="mt-6 px-4 space-y-2 flex-1 overflow-y-auto">
+        <nav 
+          role="navigation" 
+          aria-label="Navegación del dashboard"
+          className="mt-6 px-4 space-y-2 flex-1 overflow-y-auto"
+        >
           <NavItem 
             icon={<LayoutDashboard size={20} />} 
             label="Dashboard" 
@@ -128,10 +136,13 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         
         {/* Footer del sidebar */}
         <div className="p-4 border-t border-gray-100">
-          <button className={`flex items-center text-gray-600 hover:text-red-600 w-full transition-all ${
-            isSidebarOpen ? 'gap-3 px-4 py-3' : 'justify-center p-3'
-          }`}>
-            <LogOut size={20} />
+          <button 
+            className={`flex items-center text-gray-600 hover:text-red-600 w-full transition-all ${
+              isSidebarOpen ? 'gap-3 px-4 py-3' : 'justify-center p-3'
+            }`}
+            aria-label="Cerrar sesión"
+          >
+            <LogOut size={20} aria-hidden="true" />
             {isSidebarOpen && (
               <span className="font-medium text-sm">
                 Salir

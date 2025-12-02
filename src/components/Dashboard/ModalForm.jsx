@@ -34,17 +34,29 @@ const ModalForm = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 animate-fadeIn">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md p-6 animate-slideUp">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 animate-fadeIn"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div 
+        className="bg-white rounded-lg shadow-xl w-full max-w-md p-6 animate-slideUp"
+        role="document"
+      >
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-bold text-gray-800">
+          <h3 
+            id="modal-title"
+            className="text-lg font-bold text-gray-800"
+          >
             {modalTitle} {entityName}
           </h3>
           <button 
             onClick={handleCloseModal}
             className="hover:bg-gray-100 p-1 rounded transition-colors"
+            aria-label="Cerrar formulario"
           >
-            <X size={20} className="text-gray-500" />
+            <X size={20} className="text-gray-500" aria-hidden="true" />
           </button>
         </div>
         
@@ -74,14 +86,19 @@ const ModalForm = () => {
                 type="date"
               />
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label 
+                  htmlFor="status-select"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Estado
                 </label>
                 <select 
+                  id="status-select"
                   name="status" 
                   value={formData.status} 
                   onChange={handleInputChange}
                   className="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-indigo-500 outline-none"
+                  aria-label="Seleccionar estado de la orden"
                 >
                   <option value="Pendiente">Pendiente</option>
                   <option value="Completado">Completado</option>
@@ -157,14 +174,16 @@ const ModalForm = () => {
               type="button" 
               onClick={handleCloseModal}
               className="px-4 py-2 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
+              aria-label="Cancelar y cerrar formulario"
             >
               Cancelar
             </button>
             <button 
               type="submit" 
               className="px-4 py-2 bg-indigo-600 text-white rounded-md flex items-center gap-2 hover:bg-indigo-700 transition-colors"
+              aria-label={`Guardar ${entityName.toLowerCase()}`}
             >
-              <Save size={16} /> Guardar
+              <Save size={16} aria-hidden="true" /> Guardar
             </button>
           </div>
         </form>

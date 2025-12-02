@@ -8,14 +8,20 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const { activeTab } = useDashboard();
 
   return (
-    <header className="bg-white border-b h-20 flex justify-between items-center px-4 md:px-8 flex-shrink-0">
+    <header 
+      role="banner"
+      aria-label="Encabezado del dashboard"
+      className="bg-white border-b h-20 flex justify-between items-center px-4 md:px-8 flex-shrink-0"
+    >
       <div className="flex items-center gap-4">
         <button 
           id="menu-button"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          aria-label={isSidebarOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={isSidebarOpen}
         >
-          <Menu size={24} />
+          <Menu size={24} aria-hidden="true" />
         </button>
         
         {/* Logo para mobile en el header (cuando el sidebar está cerrado) */}
@@ -23,7 +29,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
           <div className="flex items-center">
             <img 
               src={logoMobile} 
-              alt="Mi Empresa" 
+              alt="TechStore Dashboard - Versión móvil" 
               className="h-24 w-auto object-contain"
             />
           </div>
@@ -33,7 +39,11 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
           {activeTab === 'dashboard' ? 'Dashboard' : activeTab}
         </h2>
       </div>
-      <div className="h-10 w-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-700 font-bold border border-indigo-200">
+      <div 
+        className="h-10 w-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-700 font-bold border border-indigo-200"
+        role="img"
+        aria-label="Usuario: Admin"
+      >
         AD
       </div>
     </header>

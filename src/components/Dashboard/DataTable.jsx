@@ -109,11 +109,11 @@ const DataTable = () => {
           </td>
           <td className="px-4 md:px-6 py-3 md:py-4">
             <div className="text-sm text-gray-900 flex items-center gap-2 truncate">
-              <Mail size={14} className="text-gray-400 flex-shrink-0"/> 
+              <Mail size={14} className="text-gray-400 flex-shrink-0" aria-hidden="true"/> 
               <span className="truncate">{item.email}</span>
             </div>
             <div className="text-xs text-gray-500 flex items-center gap-2 mt-1">
-              <Phone size={14} className="text-gray-400 flex-shrink-0"/> 
+              <Phone size={14} className="text-gray-400 flex-shrink-0" aria-hidden="true"/> 
               <span>{item.phone}</span>
             </div>
           </td>
@@ -134,11 +134,12 @@ const DataTable = () => {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
       <div className="p-4 md:p-6 border-b border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div className="relative w-full sm:w-auto">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+        <div className="relative w-full sm:w-auto" role="search">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} aria-hidden="true" />
           <input 
             type="text" 
             placeholder="Buscar..." 
+            aria-label="Buscar en la tabla"
             className="pl-10 pr-4 py-2 border rounded-lg text-sm focus:outline-indigo-500 w-full"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -147,13 +148,18 @@ const DataTable = () => {
         <button 
           onClick={() => handleOpenModal()} 
           className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors w-full sm:w-auto justify-center"
+          aria-label={`Agregar nuevo ${activeTab === 'products' ? 'producto' : activeTab === 'orders' ? 'orden' : 'cliente'}`}
         >
-          <Plus size={18} /> Agregar
+          <Plus size={18} aria-hidden="true" /> Agregar
         </button>
       </div>
       
       <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+        <table 
+          className="w-full text-left border-collapse"
+          role="table"
+          aria-label={`Tabla de ${activeTab}`}
+        >
           <thead className="bg-gray-50 text-gray-500 text-xs uppercase font-bold">
             <tr>
               {renderTableHeaders()}
