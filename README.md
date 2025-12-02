@@ -11,7 +11,7 @@ Características principales:
 - Dashboard con KPIs y gráficos de ventas
 - Búsqueda y filtrado en tiempo real
 - Persistencia automática de datos
-- Diseño 100% responsive
+- Diseño 100 por ciento responsive
 - Accesible WCAG 2.1 AA
 
 ## Tecnologías Usadas
@@ -26,136 +26,140 @@ Características principales:
 
 ## Capturas de Pantalla
 
-VISTA DESKTOP (1920x1080)
+### Vista Desktop
 Dashboard principal con sidebar expandido, KPIs, gráfico de ventas y tabla de últimas órdenes.
 
-VISTA TABLET (768x1024)
+### Vista Tablet
 Layout optimizado para tablet con sidebar colapsable y diseño adaptativo de dos columnas.
 
-VISTA MOBILE (375x667)
+### Vista Mobile
 Vista vertical con menú hamburguesa, sidebar overlay con backdrop y diseño de una columna.
 
-MODAL DE EDICIÓN
-Formulario modal dinámico que se adapta según el tipo de dato (producto, orden o cliente).
+### Modal de Edición
+Formulario modal dinámico que se adapta según el tipo de dato: producto, orden o cliente.
 
 ## Decisiones de Diseño
 
-PALETA DE COLORES
-- Indigo #4F46E5: Color principal para botones y elementos interactivos. Elegido por transmitir profesionalismo y modernidad.
-- Verde/Amarillo/Rojo: Estados semánticos (completado/pendiente/cancelado)
+### Paleta de Colores
+- Indigo: Color principal para botones y elementos interactivos. Elegido por transmitir profesionalismo y modernidad.
+- Verde/Amarillo/Rojo: Estados semánticos para completado, pendiente y cancelado
 - Grises: Jerarquía visual en textos y fondos con escala de gray-100 a gray-900
 
-LAYOUT
+### Layout
 - Mobile First: Desarrollo iniciando por móvil, escalando progresivamente a desktop
 - Flexbox: Para layouts flexibles y componentes responsivos
 - Sidebar Adaptativo:
-  * Desktop: Fijo con opción a colapsar (250px a 80px)
-  * Mobile: Overlay con backdrop oscuro
+  - Desktop: Fijo con opción a colapsar de 250px a 80px
+  - Mobile: Overlay con backdrop oscuro
 - Grid Responsivo: KPIs de 1 columna en mobile a 3 columnas en desktop
 
-TIPOGRAFÍA
+### Tipografía
 - System Font Stack: Fuentes nativas del sistema para mejor rendimiento
 - Escala modular: 12px - 14px - 16px - 20px - 24px
 - Pesos: Regular 400, Medium 500, Bold 700, Extrabold 800
 
-INTERACCIONES
+### Interacciones
 - Transiciones: 300ms ease-in-out en todos los estados hover y activos
-- Hover: Cambio de color y elevación sutil con translateY(-2px)
+- Hover: Cambio de color y elevación sutil
 - Animaciones: fadeIn para modales, slideUp para formularios, slideInLeft para sidebar mobile
 - Feedback visual: Estados activos claramente diferenciados con colores y borders
 
 ## Accesibilidad
 
-CUMPLIMIENTO WCAG 2.1 AA
+### Cumplimiento WCAG 2.1 AA
 
-SEMÁNTICA HTML5
-Uso de etiquetas semánticas:
-- header role="banner" para encabezado principal
-- nav role="navigation" para menú de navegación
-- main role="main" para contenido principal
+#### Semántica HTML5
+Uso de etiquetas semánticas con roles ARIA:
+- header con role banner para encabezado principal
+- nav con role navigation para menú de navegación
+- main con role main para contenido principal
 - article para secciones de contenido
-- footer role="contentinfo" para pie de página
+- footer con role contentinfo para pie de página
 
-ARIA LABELS Y ROLES
+#### ARIA Labels y Roles
 - Todos los botones e inputs tienen aria-label descriptivos
 - Estados dinámicos: aria-expanded para menús, aria-modal para diálogos, aria-current para navegación activa
-- Modales con role="dialog" y aria-labelledby vinculado al título
-- Búsquedas con role="search"
+- Modales con role dialog y aria-labelledby vinculado al título
+- Búsquedas con role search
 
-NAVEGACIÓN POR TECLADO
+#### Navegación por Teclado
 - Tab y Shift+Tab para navegación secuencial
 - Enter y Space para activar botones
 - Escape para cerrar modales y menús
 - Focus visible con outline azul de 2px en todos los elementos interactivos
 
-CONTRASTE DE COLORES
+#### Contraste de Colores
 Todos los textos cumplen con ratio mínimo 4.5:1
-- Gray-900 sobre White: 18.4:1 (AAA)
-- Gray-600 sobre White: 7.5:1 (AA)
-- Indigo-600 sobre White: 7.1:1 (AA)
+- Gray-900 sobre White: 18.4:1 - Nivel AAA
+- Gray-600 sobre White: 7.5:1 - Nivel AA
+- Indigo-600 sobre White: 7.1:1 - Nivel AA
 
-TEXTOS ALTERNATIVOS
+#### Textos Alternativos
 - Todas las imágenes tienen atributo alt descriptivo
-- Iconos decorativos marcados con aria-hidden="true"
+- Iconos decorativos marcados con aria-hidden true
 - Iconos funcionales con labels asociados mediante aria-label
 
-COMPATIBILIDAD CON LECTORES DE PANTALLA
-Probado y optimizado para:
-- NVDA en Windows
-- JAWS en Windows
-- VoiceOver en macOS/iOS
-- TalkBack en Android
-- Validado con Lighthouse (score 95+)
+#### Compatibilidad con Lectores de Pantalla
+Probado y optimizado para NVDA en Windows, JAWS en Windows, VoiceOver en macOS/iOS, TalkBack en Android. Validado con Lighthouse obteniendo score de 95 puntos.
 
 ## Instalación
 
 Clonar repositorio:
+```
 git clone https://github.com/tu-usuario/techstore-dashboard.git
+```
 
 Instalar dependencias:
+```
 cd techstore-dashboard
 npm install
+```
 
 Iniciar desarrollo:
+```
 npm run dev
+```
 
-Build producción:
+Build para producción:
+```
 npm run build
 npm run preview
+```
 
 ## Estructura del Proyecto
-
+```
 src/
-├── components/
-│   ├── Dashboard/
-│   │   ├── index.jsx - Container principal
-│   │   ├── DashboardView.jsx - Vista con KPIs y gráficos
-│   │   ├── DataTable.jsx - Tabla dinámica CRUD
-│   │   ├── Header.jsx - Encabezado superior
-│   │   ├── Sidebar.jsx - Barra lateral de navegación
-│   │   ├── ModalForm.jsx - Formulario modal
-│   │   ├── KpiCard.jsx - Tarjeta de métricas
-│   │   └── MainContent.jsx - Contenedor principal
-│   └── UI/
-│       ├── ActionButtons.jsx - Botones editar/eliminar
-│       ├── Badge.jsx - Indicador de estado
-│       ├── Input.jsx - Input controlado
-│       └── NavItem.jsx - Item de navegación
-├── contexts/
-│   └── DashboardContext.jsx - Estado global (Context API)
-├── hooks/
-│   ├── useLocalStorage.js - Persistencia de datos
-│   └── useResponsive.js - Detección de breakpoints
-├── utils/
-│   ├── constants.js - Constantes globales
-│   ├── data.js - Datos iniciales
-│   └── helpers.js - Funciones auxiliares
-└── styles/
-    └── animations.css - Animaciones personalizadas
+  components/
+    Dashboard/
+      index.jsx - Container principal
+      DashboardView.jsx - Vista con KPIs y gráficos
+      DataTable.jsx - Tabla dinámica CRUD
+      Header.jsx - Encabezado superior
+      Sidebar.jsx - Barra lateral de navegación
+      ModalForm.jsx - Formulario modal
+      KpiCard.jsx - Tarjeta de métricas
+      MainContent.jsx - Contenedor principal
+    UI/
+      ActionButtons.jsx - Botones editar/eliminar
+      Badge.jsx - Indicador de estado
+      Input.jsx - Input controlado
+      NavItem.jsx - Item de navegación
+  contexts/
+    DashboardContext.jsx - Estado global Context API
+  hooks/
+    useLocalStorage.js - Persistencia de datos
+    useResponsive.js - Detección de breakpoints
+  utils/
+    constants.js - Constantes globales
+    data.js - Datos iniciales
+    helpers.js - Funciones auxiliares
+  styles/
+    animations.css - Animaciones personalizadas
+```
 
-## Demo
+## Demo en Vivo
 
-URL: https://techstore-dashboard.vercel.app
+URL de producción: https://techstore-dashboard.vercel.app
 
 ## Licencia
 
@@ -164,8 +168,8 @@ MIT License - Libre uso y modificación
 ## Autor
 
 Tu Nombre
-GitHub: @tu-usuario
-Email: tu.email@ejemplo.com
+- GitHub: tu-usuario
+- Email: tu.email@ejemplo.com
 
 ---
 
