@@ -24,20 +24,6 @@ Características principales:
 - React Context API - Gestión de estado global
 - localStorage - Persistencia de datos
 
-## Capturas de Pantalla
-
-### Vista Desktop
-Dashboard principal con sidebar expandido, KPIs, gráfico de ventas y tabla de últimas órdenes.
-
-### Vista Tablet
-Layout optimizado para tablet con sidebar colapsable y diseño adaptativo de dos columnas.
-
-### Vista Mobile
-Vista vertical con menú hamburguesa, sidebar overlay con backdrop y diseño de una columna.
-
-### Modal de Edición
-Formulario modal dinámico que se adapta según el tipo de dato: producto, orden o cliente.
-
 ## Decisiones de Diseño
 
 ### Paleta de Colores
@@ -159,17 +145,12 @@ src/
 
 ## Demo en Vivo
 
-URL de producción: https://techstore-dashboard.vercel.app
+URL de producción: https://dashboard-beryl-zeta-60.vercel.app/
 
 ## Licencia
 
 MIT License - Libre uso y modificación
 
-## Autor
-
-Tu Nombre
-- GitHub: tu-usuario
-- Email: tu.email@ejemplo.com
 
 ---
 
