@@ -22,7 +22,7 @@ const MainContent = () => {
         role="contentinfo"
         className="mt-8 pt-4 text-center text-xs md:text-sm text-gray-500 border-t border-gray-200"
       >
-        &copy; {new Date().getFullYear()} MiEmpresa System.
+        &copy; {new Date().getFullYear()} DAB's Store.
       </footer>
     </main>
   );
